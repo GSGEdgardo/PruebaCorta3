@@ -1,0 +1,140 @@
+<section class="p-3">
+  <div class="mx-auto max-w-screen-xl px-4">
+    <button
+      (click)="openAddMemberModal()"
+      type="button"
+      class="text-white mb-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 focus:outline-none"
+    >
+      Agregar un integrante
+    </button>
+
+    <div class="bg-white relative shadow-md overflow-x-auto">
+      <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+          <tr>
+            <th scope="col" class="px-4 py-3">ID</th>
+            <th scope="col" class="px-4 py-3">Nombre</th>
+            <th scope="col" class="px-4 py-3">Correo electrónico</th>
+            <th scope="col" class="px-4 py-3">Semestre</th>
+            <th scope="col" class="px-4 py-3">Carrera</th>
+            <th scope="col" class="px-4 py-3">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b" *ngIf="members.length === 0">
+            <td colspan="6" class="px-4 py-3 text-center text-gray-500">
+              No hay integrantes
+            </td>
+          </tr>
+          <tr class="border-b" *ngFor="let member of members">
+            <th
+              scope="row"
+              class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap"
+            >
+              {{ member.id }}
+            </th>
+            <td class="px-4 py-3">{{ member.name }}</td>
+            <td class="px-4 py-3">{{ member.email }}</td>
+            <td class="px-4 py-3">{{ member.semester }}</td>
+            <td class="px-4 py-3">{{ member.career }}</td>
+            <td class="px-4 py-3">
+              <button
+                type="button"
+                class="py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100"
+              >
+                Editar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="addMemberModalVisible" class="modal-backdrop">
+      <div class="modal-content">
+        <h2 class="text-2x1 font-bold mb-4">Agregar nuevo miembro</h2>
+<!-- La etiqueta del formulario quedó mal cerrada lol y no encuentro donde va XD -->
+
+                <!-- <form #memberForm="" (ngsubmit)="addMember()">
+          <div class="mb-4">
+            <label for="name" class="block text-sm font-medium text-gray-700"
+              >Nombre:</label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              minlength="10"
+              maxlength="64"
+              class="mt-1 block w-full p-2 border border-gray-300 rounded"
+            />
+            <div *ngIf="fieldErrors.name" class="text-red-500 text-sm">
+              {{ fieldErrors.name }}
+            </div>
+            <div class="mb-4">
+            <label for="email" class="block text-sm font-medium text-gray-700"
+              >Correo:</label
+            >
+            <input
+              type="text"
+              id="email"
+              email="email"
+              required
+              minlength="10"
+              maxlength="64"
+              class="mt-1 block w-full p-2 border border-gray-300 rounded"
+            />
+            <div *ngIf="fieldErrors.name" class="text-red-500 text-sm">
+              {{ fieldErrors.name }}
+            </div>
+            <div class="mb-4">
+            <label for="name" class="block text-sm font-medium text-gray-700"
+              >Semestre:</label
+            >
+            <input
+              type="text"
+              id="semester"
+              placeholder="primer semestre"
+              semester="semester"
+              required
+              class="mt-1 block w-full p-2 border border-gray-300 rounded"
+            />
+            <div *ngIf="fieldErrors.name" class="text-red-500 text-sm">
+              {{ fieldErrors.name }}
+            </div>
+            <div class="mb-4">
+            <label for="name" class="block text-sm font-medium text-gray-700"
+              >Carrera:</label
+            >
+            <input
+              type="text"
+              id="career"
+              career="career"
+              required
+              placeholder="Civil"
+              class="mt-1 block w-full p-2 border border-gray-300 rounded"
+            />
+            <div *ngIf="fieldErrors.name" class="text-red-500 text-sm">
+              {{ fieldErrors.name }}
+            </div>
+          </div>
+          <div class="flex justify-end">
+            <button
+              type="submit"
+              class="bg-blue-500 text-white px-4 py-2 rounded mr-2"
+            >
+              Agregar
+            </button>
+            <button
+              type="button"
+              (click)="closeAddMemberModal()"
+              class="bg-gray-500 text-white px-4 py-2 rounded"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form> -->
+      </div>
+    </div>
+  </div>
+</section>
